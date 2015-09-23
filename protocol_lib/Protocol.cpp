@@ -8,7 +8,7 @@
 #include "Protocol.h"
 #include "PacketBuilder.h"
 
-ReadReqPacket* Protocol::readAll(unsigned char serviceId) {
+ReadReqPacket* Protocol::buildReadAllCharacteristicsPacketForServiceId(unsigned char serviceId) {
     return PacketBuilder::builderReadPacket(serviceId);
 }
 

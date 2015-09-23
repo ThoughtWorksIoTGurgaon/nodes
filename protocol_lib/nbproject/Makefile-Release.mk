@@ -49,11 +49,11 @@ TESTFILES= \
 	${TESTDIR}/TestFiles/f1
 
 # C Compiler Flags
-CFLAGS=
+CFLAGS=`cppunit-config --cflags` 
 
 # CC Compiler Flags
-CCFLAGS=
-CXXFLAGS=
+CCFLAGS=`cppunit-config --cflags` 
+CXXFLAGS=`cppunit-config --cflags` 
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -62,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=`cppunit-config --libs`  
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}

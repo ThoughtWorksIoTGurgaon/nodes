@@ -11,7 +11,7 @@
 
 class Protocol {
 public:
-    ReadReqPacket * readAll(unsigned char serviceId);
+    ReadReqPacket * buildReadAllCharacteristicsPacketForServiceId(unsigned char serviceId);
 private:
 
 };

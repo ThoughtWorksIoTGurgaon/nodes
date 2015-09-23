@@ -16,7 +16,7 @@
 
 void shouldCreateReadAllChPacket() {
     Protocol protocol;
-    ReadReqPacket * packet = protocol.readAll(12);
+    ReadReqPacket * packet = protocol.buildReadAllCharacteristicsPacketForServiceId(12);
     
     assertTrue(packet->getLength() == 7, "Length should be 7");
     
