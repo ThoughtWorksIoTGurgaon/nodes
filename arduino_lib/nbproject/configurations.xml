@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>Arduino.h</itemPath>
+      <itemPath>Client.h</itemPath>
+      <itemPath>HardwareSerial.h</itemPath>
+      <itemPath>HardwareSerial_private.h</itemPath>
+      <itemPath>IPAddress.h</itemPath>
+      <itemPath>Print.h</itemPath>
+      <itemPath>Printable.h</itemPath>
+      <itemPath>Server.h</itemPath>
+      <itemPath>Stream.h</itemPath>
+      <itemPath>USBAPI.h</itemPath>
+      <itemPath>USBCore.h</itemPath>
+      <itemPath>USBDesc.h</itemPath>
+      <itemPath>Udp.h</itemPath>
+      <itemPath>WCharacter.h</itemPath>
+      <itemPath>WString.h</itemPath>
+      <itemPath>binary.h</itemPath>
+      <itemPath>new.h</itemPath>
+      <itemPath>pins_arduino.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>CDC.cpp</itemPath>
+      <itemPath>HID.cpp</itemPath>
+      <itemPath>HardwareSerial.cpp</itemPath>
+      <itemPath>HardwareSerial0.cpp</itemPath>
+      <itemPath>HardwareSerial1.cpp</itemPath>
+      <itemPath>HardwareSerial2.cpp</itemPath>
+      <itemPath>HardwareSerial3.cpp</itemPath>
+      <itemPath>IPAddress.cpp</itemPath>
+      <itemPath>Print.cpp</itemPath>
+      <itemPath>Stream.cpp</itemPath>
+      <itemPath>Tone.cpp</itemPath>
+      <itemPath>USBCore.cpp</itemPath>
+      <itemPath>WInterrupts.c</itemPath>
+      <itemPath>WMath.cpp</itemPath>
+      <itemPath>WString.cpp</itemPath>
+      <itemPath>abi.cpp</itemPath>
+      <itemPath>hooks.c</itemPath>
+      <itemPath>main.cpp</itemPath>
+      <itemPath>new.cpp</itemPath>
+      <itemPath>wiring.c</itemPath>
+      <itemPath>wiring_analog.c</itemPath>
+      <itemPath>wiring_digital.c</itemPath>
+      <itemPath>wiring_private.h</itemPath>
+      <itemPath>wiring_pulse.S</itemPath>
+      <itemPath>wiring_pulse.c</itemPath>
+      <itemPath>wiring_shift.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>/Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="3">
+      <toolsSet>
+        <compilerSet>Avr|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>-Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
+          <commandLine>-Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100</commandLine>
+        </ccTool>
+        <archiverTool>
+          <commandlineTool>avr-ar</commandlineTool>
+          <ranlibTool>avr-ranlib</ranlibTool>
+        </archiverTool>
+      </compileType>
+      <item path="Arduino.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CDC.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Client.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HID.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HardwareSerial0.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial_private.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IPAddress.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IPAddress.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Print.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Print.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Printable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Stream.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Stream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Tone.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="USBAPI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="USBCore.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="USBCore.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="USBDesc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Udp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="WCharacter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="WInterrupts.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="WMath.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="WString.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="WString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="abi.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="binary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hooks.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="new.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="new.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pins_arduino.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiring.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_analog.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_digital.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_private.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiring_pulse.S" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="wiring_pulse.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_shift.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="3">
+      <toolsSet>
+        <compilerSet>Avr|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="Arduino.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CDC.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Client.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HID.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HardwareSerial0.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial3.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HardwareSerial_private.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IPAddress.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IPAddress.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Print.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Print.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Printable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Server.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Stream.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Stream.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Tone.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="USBAPI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="USBCore.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="USBCore.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="USBDesc.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Udp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="WCharacter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="WInterrupts.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="WMath.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="WString.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="WString.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="abi.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="binary.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hooks.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="new.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="new.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="pins_arduino.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiring.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_analog.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_digital.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_private.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="wiring_pulse.S" ex="false" tool="4" flavor2="0">
+      </item>
+      <item path="wiring_pulse.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="wiring_shift.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

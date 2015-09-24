@@ -1,2 +1,4 @@
 .dep.inc
 build
+/arduino_lib/dist/
+/device/dist/
