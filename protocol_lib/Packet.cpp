@@ -6,12 +6,36 @@
  */
 
 #include "Packet.h"
+#include "ReadReqPacket.h"
+
+Packet::Packet() {}
+
+Packet::Packet(int len, unsigned char * data): length(len), data(data) {}
 
 int Packet::getLength() {
-	return length;
+    return length;
 }
 
 unsigned char* Packet::getData() {
-	return data;
+    return data;
+}
+
+char Packet::getServiceId() {
+    return ((Header *)data)->serviceId;
+}
+
+char Packet::getType() {
+    return ((Header *)data)->type;
+}
+
+Packet* Packet::parse(int len, unsigned char * data) {
+    Header * header = (Header *)data;
+    switch(header->type) {
+        case PacketType::Read:
+            return new ReadReqPacket(len, data);
+        default:
+            header->type = PacketType::Invalid;
+            return new Packet(len, data);
+    }
 }
 

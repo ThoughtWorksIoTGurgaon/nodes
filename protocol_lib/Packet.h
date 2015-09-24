@@ -10,16 +10,28 @@
 
 class PacketType {
 public:
-	static const char Read = 1, Write = 2, Observe = 3, Response = 4, Ack = 5;
+	static const char  Read = 1, 
+                Write = 2, 
+                Observe = 3, 
+                Response = 4, 
+                Ack = 5, 
+                Invalid = 255;
 };
 
 class Packet {
 protected:
-	int length;
-	unsigned char * data;
+    int length;
+    unsigned char * data;
 public:
-	int getLength();
-	unsigned char * getData();
+    Packet();
+    Packet(int len, unsigned char * data);
+
+    int getLength();
+    unsigned char * getData();
+    char getServiceId();
+    char getType();
+
+    static Packet* parse(int len, unsigned char * data);
 };
 
 struct Header {

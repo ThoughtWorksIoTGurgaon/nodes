@@ -12,6 +12,7 @@
 class Protocol {
 public:
     ReadReqPacket * buildReadAllCharacteristicsPacketForServiceId(unsigned char serviceId);
+    Packet * parsePacket(int len, unsigned char * data);
 private:
 
 };

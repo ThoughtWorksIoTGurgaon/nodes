@@ -36,10 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Packet.o \
-	${OBJECTDIR}/PacketBuilder.o \
 	${OBJECTDIR}/Protocol.o \
-	${OBJECTDIR}/ReadReqPacket.o \
-	${OBJECTDIR}/tests/test_helper.o
+	${OBJECTDIR}/ReadReqPacket.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -79,11 +77,6 @@ ${OBJECTDIR}/Packet.o: Packet.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Packet.o Packet.cpp
 
-${OBJECTDIR}/PacketBuilder.o: PacketBuilder.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PacketBuilder.o PacketBuilder.cpp
-
 ${OBJECTDIR}/Protocol.o: Protocol.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -94,25 +87,26 @@ ${OBJECTDIR}/ReadReqPacket.o: ReadReqPacket.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ReadReqPacket.o ReadReqPacket.cpp
 
-${OBJECTDIR}/tests/test_helper.o: tests/test_helper.cpp 
-	${MKDIR} -p ${OBJECTDIR}/tests
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tests/test_helper.o tests/test_helper.cpp
-
 # Subprojects
 .build-subprojects:
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/readpackettest.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/ProtocolTest.o ${TESTDIR}/tests/TestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} 
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} `cppunit-config --libs`   
 
 
-${TESTDIR}/tests/readpackettest.o: tests/readpackettest.cpp 
+${TESTDIR}/tests/ProtocolTest.o: tests/ProtocolTest.cpp 
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I. -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/readpackettest.o tests/readpackettest.cpp
+	$(COMPILE.cc) -g -I. `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolTest.o tests/ProtocolTest.cpp
+
+
+${TESTDIR}/tests/TestRunner.o: tests/TestRunner.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/TestRunner.o tests/TestRunner.cpp
 
 
 ${OBJECTDIR}/Packet_nomain.o: ${OBJECTDIR}/Packet.o Packet.cpp 
@@ -126,19 +120,6 @@ ${OBJECTDIR}/Packet_nomain.o: ${OBJECTDIR}/Packet.o Packet.cpp
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Packet_nomain.o Packet.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Packet.o ${OBJECTDIR}/Packet_nomain.o;\
-	fi
-
-${OBJECTDIR}/PacketBuilder_nomain.o: ${OBJECTDIR}/PacketBuilder.o PacketBuilder.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/PacketBuilder.o`; \
-	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
-	then  \
-	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PacketBuilder_nomain.o PacketBuilder.cpp;\
-	else  \
-	    ${CP} ${OBJECTDIR}/PacketBuilder.o ${OBJECTDIR}/PacketBuilder_nomain.o;\
 	fi
 
 ${OBJECTDIR}/Protocol_nomain.o: ${OBJECTDIR}/Protocol.o Protocol.cpp 
@@ -165,19 +146,6 @@ ${OBJECTDIR}/ReadReqPacket_nomain.o: ${OBJECTDIR}/ReadReqPacket.o ReadReqPacket.
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ReadReqPacket_nomain.o ReadReqPacket.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/ReadReqPacket.o ${OBJECTDIR}/ReadReqPacket_nomain.o;\
-	fi
-
-${OBJECTDIR}/tests/test_helper_nomain.o: ${OBJECTDIR}/tests/test_helper.o tests/test_helper.cpp 
-	${MKDIR} -p ${OBJECTDIR}/tests
-	@NMOUTPUT=`${NM} ${OBJECTDIR}/tests/test_helper.o`; \
-	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
-	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
-	then  \
-	    ${RM} "$@.d";\
-	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/tests/test_helper_nomain.o tests/test_helper.cpp;\
-	else  \
-	    ${CP} ${OBJECTDIR}/tests/test_helper.o ${OBJECTDIR}/tests/test_helper_nomain.o;\
 	fi
 
 # Run Test Targets

@@ -7,6 +7,10 @@
 
 #include "ReadReqPacket.h"
 
+ReadReqPacket::ReadReqPacket() {}
+
+ReadReqPacket::ReadReqPacket(int len, unsigned char * data): Packet(len, data) {}
+
 void ReadReqPacket::construct(unsigned char serviceId, unsigned char * buffer) {
 	ReadCommandPacket * packet = (ReadCommandPacket * ) buffer;
 

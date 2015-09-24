@@ -17,6 +17,9 @@ struct ReadCommandPacket {
 
 class ReadReqPacket: public Packet {
 public:
+    ReadReqPacket();
+    ReadReqPacket(int len, unsigned char * data);
+    
     void construct(unsigned char serviceId, unsigned char * buffer);
 };
 
