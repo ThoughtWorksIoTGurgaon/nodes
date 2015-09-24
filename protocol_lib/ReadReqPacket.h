@@ -4,10 +4,10 @@
  *
  * Created on 23 September, 2015, 5:57 PM
  */
-#include "Packet.h"
-
 #ifndef READREQPACKET_H
 #define	READREQPACKET_H
+
+#include "Packet.h"
 
 struct ReadCommandPacket {
 	Header header;
