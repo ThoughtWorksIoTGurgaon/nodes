@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Avr-MacOSX
-CND_ARTIFACT_DIR_Debug=dist/Debug/Avr-MacOSX
+CND_PLATFORM_Debug=AVR-MacOSX
+CND_ARTIFACT_DIR_Debug=dist/Debug/AVR-MacOSX
 CND_ARTIFACT_NAME_Debug=libarduino_lib.a
-CND_ARTIFACT_PATH_Debug=dist/Debug/Avr-MacOSX/libarduino_lib.a
-CND_PACKAGE_DIR_Debug=dist/Debug/Avr-MacOSX/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/AVR-MacOSX/libarduino_lib.a
+CND_PACKAGE_DIR_Debug=dist/Debug/AVR-MacOSX/package
 CND_PACKAGE_NAME_Debug=arduinolib.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Avr-MacOSX/package/arduinolib.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/AVR-MacOSX/package/arduinolib.tar
 # Release configuration
 CND_PLATFORM_Release=Avr-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/Avr-MacOSX

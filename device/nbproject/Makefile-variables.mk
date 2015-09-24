@@ -7,13 +7,13 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Avr-MacOSX
-CND_ARTIFACT_DIR_Debug=dist/Debug/Avr-MacOSX
+CND_PLATFORM_Debug=AVR-MacOSX
+CND_ARTIFACT_DIR_Debug=dist/Debug/AVR-MacOSX
 CND_ARTIFACT_NAME_Debug=device
-CND_ARTIFACT_PATH_Debug=dist/Debug/Avr-MacOSX/device
-CND_PACKAGE_DIR_Debug=dist/Debug/Avr-MacOSX/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/AVR-MacOSX/device
+CND_PACKAGE_DIR_Debug=dist/Debug/AVR-MacOSX/package
 CND_PACKAGE_NAME_Debug=device.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Avr-MacOSX/package/device.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/AVR-MacOSX/package/device.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX

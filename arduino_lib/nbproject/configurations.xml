@@ -76,7 +76,7 @@
   <confs>
     <conf name="Debug" type="3">
       <toolsSet>
-        <compilerSet>Avr|GNU</compilerSet>
+        <compilerSet>AVR|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>

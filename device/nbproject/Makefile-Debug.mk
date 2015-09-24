@@ -21,7 +21,7 @@ FC=gfortran
 AS=avr-as
 
 # Macros
-CND_PLATFORM=Avr-MacOSX
+CND_PLATFORM=AVR-MacOSX
 CND_DLIB_EXT=dylib
 CND_CONF=Debug
 CND_DISTDIR=dist
