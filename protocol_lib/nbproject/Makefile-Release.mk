@@ -62,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=`cppunit-config --libs`  
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
