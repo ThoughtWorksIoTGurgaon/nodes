@@ -9,6 +9,24 @@
 #define	SERVICETEST_H
 
 #include <cppunit/extensions/HelperMacros.h>
+#include "../Service.h"
+
+class ServiceImp : public Service {
+public:
+    ServiceImp(char count, char * data): Service(count, data) {}
+    
+    int getDataSizeForCharacteristic(char id) {
+        return 1;
+    }
+    
+    int getOffsetForCharacteristic(char id) {
+        return id == 0 ? 0 : 4;
+    }
+    
+    int getDataSize() {
+        return 8;
+    }
+};
 
 class ServiceTest : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST_SUITE(ServiceTest);

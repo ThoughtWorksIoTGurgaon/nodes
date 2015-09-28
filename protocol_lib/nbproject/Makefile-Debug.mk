@@ -62,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=`cppunit-config --libs`  
+LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -104,7 +104,7 @@ ${OBJECTDIR}/Service.o: Service.cpp
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/ProtocolTest.o ${TESTDIR}/tests/ServiceTest.o ${TESTDIR}/tests/TestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/ProtocolTest.o ${TESTDIR}/tests/ReadResponsePacketTest.o ${TESTDIR}/tests/ServiceTest.o ${TESTDIR}/tests/TestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} `cppunit-config --libs`   
 
@@ -113,6 +113,12 @@ ${TESTDIR}/tests/ProtocolTest.o: tests/ProtocolTest.cpp
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I. `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolTest.o tests/ProtocolTest.cpp
+
+
+${TESTDIR}/tests/ReadResponsePacketTest.o: tests/ReadResponsePacketTest.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ReadResponsePacketTest.o tests/ReadResponsePacketTest.cpp
 
 
 ${TESTDIR}/tests/ServiceTest.o: tests/ServiceTest.cpp 

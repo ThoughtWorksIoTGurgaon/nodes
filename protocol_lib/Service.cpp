@@ -13,36 +13,36 @@ struct __attribute__((__packed__)) service_payload {
     char dataPointer;
 };
 
-Service::Service(char count, char * data): data(data), count(count) {}
+Service::Service(unsigned char characteristicCount, char * data): buffer(data), characteristicCount(characteristicCount) {}
 
 void Service::initialize() {
     int offset;
     service_payload *payload;
-    for(char i = 0; i < count; i++) {
+    for(char i = 0; i < characteristicCount; i++) {
         offset = getOffsetForCharacteristic(i);
-        payload = (service_payload *) (data + offset);
+        payload = (service_payload *) (buffer + offset);
         payload->characteristicId = i;
         payload->dataLength = getDataSizeForCharacteristic(i);
     }
 }
 
-char* Service::getData() {
-    return data;
+const char* const Service::serialize() {
+    return buffer;
 }
 
-int Service::getCountOfCharacteristics() {
-    return count;
+unsigned char Service::getCountOfCharacteristics() {
+    return characteristicCount;
 }
 
-char* Service::getValueOfCharacteristic(char id) {
+const char* const Service::getValueOfCharacteristic(char id) {
     int offset = getOffsetForCharacteristic(id);
-    service_payload *payload = (service_payload *) (data + offset);
+    service_payload *payload = (service_payload *) (buffer + offset);
     return &(payload->dataPointer);
 }
 
 void Service::setValueOfCharacteristic(char id, int len, char * value) {
     int offset = getOffsetForCharacteristic(id);
-    service_payload *payload = (service_payload *) (data + offset);
+    service_payload *payload = (service_payload *) (buffer + offset);
     
     char * d = &(payload->dataPointer);
     for(; len > 0;) {

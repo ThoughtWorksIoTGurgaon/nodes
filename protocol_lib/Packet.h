@@ -24,7 +24,7 @@ protected:
     unsigned char * data;
 public:
     Packet();
-    Packet(int len, unsigned char * data);
+    Packet(int length, unsigned char * data);
 
     int getLength();
     unsigned char * getData();

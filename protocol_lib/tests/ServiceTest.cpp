@@ -10,23 +10,6 @@
 
 CPPUNIT_TEST_SUITE_REGISTRATION(ServiceTest);
 
-class ServiceImp : public Service {
-public:
-    ServiceImp(char count, char * data): Service(count, data) {}
-    
-    int getDataSizeForCharacteristic(char id) {
-        return 1;
-    }
-    
-    int getOffsetForCharacteristic(char id) {
-        return id == 0 ? 0 : 4;
-    }
-    
-    int getDataSize() {
-        return 8;
-    }
-};
-
 ServiceTest::ServiceTest() {
 }
 
@@ -49,11 +32,11 @@ void ServiceTest::shouldGetDataForACharacteristic() {
     serviceImpl.setValueOfCharacteristic(0, 1, &data);
     
     CPPUNIT_ASSERT_EQUAL(*serviceImpl.getValueOfCharacteristic(0), data);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[0], (char)0);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[1], (char)1);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[2], (char)0);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[3], data);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[4], (char)1);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[5], (char)1);
-    CPPUNIT_ASSERT_EQUAL(serviceImpl.getData()[6], (char)0);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[0], (char)0);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[1], (char)1);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[2], (char)0);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[3], data);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[4], (char)1);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[5], (char)1);
+    CPPUNIT_ASSERT_EQUAL(serviceImpl.serialize()[6], (char)0);
 }

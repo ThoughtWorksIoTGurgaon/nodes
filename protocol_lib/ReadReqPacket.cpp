@@ -7,7 +7,7 @@
 
 #include "ReadReqPacket.h"
 
-struct __attribute__ ((__packed__)) ReadCommandPacket {
+struct __attribute__ ((__packed__)) ReadCommandStruct {
     Header header;
     unsigned char count;
     unsigned char characteristicsRef;
@@ -18,7 +18,7 @@ ReadReqPacket::ReadReqPacket() {}
 ReadReqPacket::ReadReqPacket(int len, unsigned char * data): Packet(len, data) {}
 
 void ReadReqPacket::construct(unsigned char serviceId, unsigned char * buffer) {
-	ReadCommandPacket * packet = (ReadCommandPacket * ) buffer;
+	ReadCommandStruct * packet = (ReadCommandStruct * ) buffer;
 
 	packet->header.version = 1;
 	packet->header.type = PacketType::Read;
