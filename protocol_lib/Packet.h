@@ -34,7 +34,7 @@ public:
     static Packet* parse(int len, unsigned char * data);
 };
 
-struct Header {
+struct __attribute__ ((__packed__)) Header {
 	char version;
 	char type;
 	char unused[3];

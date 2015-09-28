@@ -7,6 +7,12 @@
 
 #include "ReadReqPacket.h"
 
+struct __attribute__ ((__packed__)) ReadCommandPacket {
+    Header header;
+    unsigned char count;
+    unsigned char characteristicsRef;
+};
+
 ReadReqPacket::ReadReqPacket() {}
 
 ReadReqPacket::ReadReqPacket(int len, unsigned char * data): Packet(len, data) {}

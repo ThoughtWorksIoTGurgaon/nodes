@@ -7,6 +7,8 @@
       <itemPath>Packet.h</itemPath>
       <itemPath>Protocol.h</itemPath>
       <itemPath>ReadReqPacket.h</itemPath>
+      <itemPath>ReadResponsePacket.h</itemPath>
+      <itemPath>Service.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -18,6 +20,8 @@
       <itemPath>Packet.cpp</itemPath>
       <itemPath>Protocol.cpp</itemPath>
       <itemPath>ReadReqPacket.cpp</itemPath>
+      <itemPath>ReadResponsePacket.cpp</itemPath>
+      <itemPath>Service.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -29,6 +33,8 @@
                      kind="TEST">
         <itemPath>tests/ProtocolTest.cpp</itemPath>
         <itemPath>tests/ProtocolTest.h</itemPath>
+        <itemPath>tests/ServiceTest.cpp</itemPath>
+        <itemPath>tests/ServiceTest.h</itemPath>
         <itemPath>tests/TestRunner.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -69,6 +75,14 @@
       </item>
       <item path="ReadReqPacket.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ReadResponsePacket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ReadResponsePacket.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Service.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Service.h" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="TestFiles/f1">
         <cTool>
           <incDir>
@@ -89,9 +103,27 @@
           </linkerLibItems>
         </linkerTool>
       </folder>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <item path="tests/ProtocolTest.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/ProtocolTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/ServiceTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/ServiceTest.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tests/TestRunner.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -132,6 +164,14 @@
       </item>
       <item path="ReadReqPacket.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ReadResponsePacket.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ReadResponsePacket.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Service.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Service.h" ex="false" tool="3" flavor2="0">
+      </item>
       <folder path="TestFiles/f1">
         <cTool>
           <incDir>
@@ -152,9 +192,27 @@
           </linkerLibItems>
         </linkerTool>
       </folder>
+      <folder path="TestFiles/f2">
+        <cTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </cTool>
+        <ccTool>
+          <commandLine>`cppunit-config --cflags`</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>${TESTDIR}/TestFiles/f2</output>
+          <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </folder>
       <item path="tests/ProtocolTest.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="tests/ProtocolTest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="tests/ServiceTest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="tests/ServiceTest.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="tests/TestRunner.cpp" ex="false" tool="1" flavor2="0">
       </item>

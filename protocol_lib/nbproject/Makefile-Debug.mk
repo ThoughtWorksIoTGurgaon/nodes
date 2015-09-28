@@ -37,7 +37,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Packet.o \
 	${OBJECTDIR}/Protocol.o \
-	${OBJECTDIR}/ReadReqPacket.o
+	${OBJECTDIR}/ReadReqPacket.o \
+	${OBJECTDIR}/ReadResponsePacket.o \
+	${OBJECTDIR}/Service.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -60,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=`cppunit-config --libs`  
+LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -87,12 +89,22 @@ ${OBJECTDIR}/ReadReqPacket.o: ReadReqPacket.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ReadReqPacket.o ReadReqPacket.cpp
 
+${OBJECTDIR}/ReadResponsePacket.o: ReadResponsePacket.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ReadResponsePacket.o ReadResponsePacket.cpp
+
+${OBJECTDIR}/Service.o: Service.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service.o Service.cpp
+
 # Subprojects
 .build-subprojects:
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/ProtocolTest.o ${TESTDIR}/tests/TestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/tests/ProtocolTest.o ${TESTDIR}/tests/ServiceTest.o ${TESTDIR}/tests/TestRunner.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
 	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} `cppunit-config --libs`   
 
@@ -101,6 +113,12 @@ ${TESTDIR}/tests/ProtocolTest.o: tests/ProtocolTest.cpp
 	${MKDIR} -p ${TESTDIR}/tests
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I. `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ProtocolTest.o tests/ProtocolTest.cpp
+
+
+${TESTDIR}/tests/ServiceTest.o: tests/ServiceTest.cpp 
+	${MKDIR} -p ${TESTDIR}/tests
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I. `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/tests/ServiceTest.o tests/ServiceTest.cpp
 
 
 ${TESTDIR}/tests/TestRunner.o: tests/TestRunner.cpp 
@@ -146,6 +164,32 @@ ${OBJECTDIR}/ReadReqPacket_nomain.o: ${OBJECTDIR}/ReadReqPacket.o ReadReqPacket.
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ReadReqPacket_nomain.o ReadReqPacket.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/ReadReqPacket.o ${OBJECTDIR}/ReadReqPacket_nomain.o;\
+	fi
+
+${OBJECTDIR}/ReadResponsePacket_nomain.o: ${OBJECTDIR}/ReadResponsePacket.o ReadResponsePacket.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/ReadResponsePacket.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ReadResponsePacket_nomain.o ReadResponsePacket.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/ReadResponsePacket.o ${OBJECTDIR}/ReadResponsePacket_nomain.o;\
+	fi
+
+${OBJECTDIR}/Service_nomain.o: ${OBJECTDIR}/Service.o Service.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/Service.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service_nomain.o Service.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/Service.o ${OBJECTDIR}/Service_nomain.o;\
 	fi
 
 # Run Test Targets
