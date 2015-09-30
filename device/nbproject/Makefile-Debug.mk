@@ -60,7 +60,7 @@ LDLIBSOPTIONS=-L../arduino_lib/dist/Debug/Avr-MacOSX -larduino_lib -lm
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	avr-g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device ${OBJECTFILES} ${LDLIBSOPTIONS}
+	avr-g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device ${OBJECTFILES} ${LDLIBSOPTIONS} -Os -Wl,--gc-sections -mmcu=atmega328p
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

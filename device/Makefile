@@ -62,11 +62,11 @@ build: .build-post
 
 .build-post: .build-impl
 # Add your post 'build' code here...
-	avr-objcopy -O ihex ${CND_ARTIFACT_PATH_${CONF}} ${CND_ARTIFACT_PATH_${CONF}}.hex
-	avr-size --mcu=atmega328 -C ${CND_ARTIFACT_PATH_${CONF}}
+	${AVROBJCOPY} -O ihex ${CND_ARTIFACT_PATH_${CONF}} ${CND_ARTIFACT_PATH_${CONF}}.hex
+	${AVRSIZE} --mcu=atmega328 -C ${CND_ARTIFACT_PATH_${CONF}}
 
 upload: .build-post
-	avrdude -C${CND_BASEDIR}/../hardware/avr/etc/avrdude.conf -patmega328p -carduino -P/dev/tty.usbmodem1d11 -b115200 -D -F -V -Uflash:w:${CND_ARTIFACT_PATH_${CONF}}.hex:i 
+	${AVRDUDE} -C${CND_BASEDIR}/../hardware/avr/etc/avrdude.conf -v -patmega328p -carduino -P/dev/cu.usbmodem1411 -b115200 -D -Uflash:w:${CND_ARTIFACT_PATH_${CONF}}.hex:i 
 
 # clean
 clean: .clean-post
