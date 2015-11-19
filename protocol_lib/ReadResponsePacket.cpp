@@ -31,6 +31,7 @@ void ReadResponsePacket::construct(ReadReqPacket * readPacket, Service * service
     for(i = 0; i < payloadLength; i++ ) {
         payload[i] = serviceData[i];
     }
+    payload[i] = 0;
     
     data = buffer;
     length = sizeof(Header) + 1 + payloadLength;

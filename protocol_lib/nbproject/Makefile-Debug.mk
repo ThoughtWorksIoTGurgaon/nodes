@@ -13,15 +13,16 @@ CP=cp
 GREP=grep
 NM=nm
 CCADMIN=CCadmin
-RANLIB=ranlib
-CC=gcc
-CCC=g++
-CXX=g++
+RANLIB=avr-ranlib
+CC=avr-gcc
+CCC=avr-g++
+CXX=avr-g++
 FC=gfortran
-AS=as
+AS=avr-as
+AR=avr-ar
 
 # Macros
-CND_PLATFORM=GNU-MacOSX
+CND_PLATFORM=AVR-MacOSX
 CND_DLIB_EXT=dylib
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -39,7 +40,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/Protocol.o \
 	${OBJECTDIR}/ReadReqPacket.o \
 	${OBJECTDIR}/ReadResponsePacket.o \
-	${OBJECTDIR}/Service.o
+	${OBJECTDIR}/Service.o \
+	${OBJECTDIR}/WriteReqPacket.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -49,11 +51,11 @@ TESTFILES= \
 	${TESTDIR}/TestFiles/f1
 
 # C Compiler Flags
-CFLAGS=`cppunit-config --cflags` 
+CFLAGS=-Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100
 
 # CC Compiler Flags
-CCFLAGS=`cppunit-config --cflags` 
-CXXFLAGS=`cppunit-config --cflags` 
+CCFLAGS=-Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100
+CXXFLAGS=-Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -98,6 +100,11 @@ ${OBJECTDIR}/Service.o: Service.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service.o Service.cpp
+
+${OBJECTDIR}/WriteReqPacket.o: WriteReqPacket.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/WriteReqPacket.o WriteReqPacket.cpp
 
 # Subprojects
 .build-subprojects:
@@ -196,6 +203,19 @@ ${OBJECTDIR}/Service_nomain.o: ${OBJECTDIR}/Service.o Service.cpp
 	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service_nomain.o Service.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Service.o ${OBJECTDIR}/Service_nomain.o;\
+	fi
+
+${OBJECTDIR}/WriteReqPacket_nomain.o: ${OBJECTDIR}/WriteReqPacket.o WriteReqPacket.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/WriteReqPacket.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -g -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/WriteReqPacket_nomain.o WriteReqPacket.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/WriteReqPacket.o ${OBJECTDIR}/WriteReqPacket_nomain.o;\
 	fi
 
 # Run Test Targets

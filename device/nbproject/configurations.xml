@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>SoftwareSerial.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>SoftwareSerial.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -38,6 +40,8 @@
         <cTool>
           <incDir>
             <pElem>../arduino_lib</pElem>
+            <pElem>../protocol_lib</pElem>
+            <pElem>../espduino</pElem>
           </incDir>
           <commandLine>-Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100</commandLine>
         </cTool>
@@ -45,6 +49,8 @@
           <commandlineTool>avr-g++</commandlineTool>
           <incDir>
             <pElem>../arduino_lib</pElem>
+            <pElem>../protocol_lib</pElem>
+            <pElem>../espduino</pElem>
           </incDir>
           <commandLine>-Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100</commandLine>
         </ccTool>
@@ -54,15 +60,23 @@
         <linkerTool>
           <linkerAddLib>
             <pElem>../arduino_lib/dist/Debug/Avr-MacOSX</pElem>
+            <pElem>../protocol_lib/dist/Debug/AVR-MacOSX</pElem>
+            <pElem>../espduino/dist/Debug/AVR-MacOSX</pElem>
           </linkerAddLib>
           <commandlineTool>avr-g++</commandlineTool>
           <linkerLibItems>
             <linkerLibLibItem>arduino_lib</linkerLibLibItem>
             <linkerLibStdlibItem>Mathematics</linkerLibStdlibItem>
+            <linkerLibLibItem>espduino</linkerLibLibItem>
+            <linkerLibLibItem>protocol_lib</linkerLibLibItem>
           </linkerLibItems>
           <commandLine>-Os -Wl,--gc-sections -mmcu=atmega328p</commandLine>
         </linkerTool>
       </compileType>
+      <item path="SoftwareSerial.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SoftwareSerial.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -86,6 +100,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="SoftwareSerial.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SoftwareSerial.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

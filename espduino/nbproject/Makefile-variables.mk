@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=AVR-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/AVR-MacOSX
-CND_ARTIFACT_NAME_Debug=libprotocol_lib.a
-CND_ARTIFACT_PATH_Debug=dist/Debug/AVR-MacOSX/libprotocol_lib.a
+CND_ARTIFACT_NAME_Debug=libespduino.a
+CND_ARTIFACT_PATH_Debug=dist/Debug/AVR-MacOSX/libespduino.a
 CND_PACKAGE_DIR_Debug=dist/Debug/AVR-MacOSX/package
-CND_PACKAGE_NAME_Debug=protocollib.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/AVR-MacOSX/package/protocollib.tar
+CND_PACKAGE_NAME_Debug=espduino.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/AVR-MacOSX/package/espduino.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-MacOSX
-CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=libprotocol_lib.a
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/libprotocol_lib.a
-CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=protocollib.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/protocollib.tar
+CND_PLATFORM_Release=AVR-MacOSX
+CND_ARTIFACT_DIR_Release=dist/Release/AVR-MacOSX
+CND_ARTIFACT_NAME_Release=libespduino.a
+CND_ARTIFACT_PATH_Release=dist/Release/AVR-MacOSX/libespduino.a
+CND_PACKAGE_DIR_Release=dist/Release/AVR-MacOSX/package
+CND_PACKAGE_NAME_Release=espduino.tar
+CND_PACKAGE_PATH_Release=dist/Release/AVR-MacOSX/package/espduino.tar
 #
 # include compiler specific variables
 #

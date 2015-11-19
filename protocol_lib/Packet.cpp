@@ -8,6 +8,7 @@
 #include "Packet.h"
 #include "ReadReqPacket.h"
 #include "ReadResponsePacket.h"
+#include "WriteReqPacket.h"
 
 Packet::Packet() {}
 
@@ -36,6 +37,8 @@ Packet* Packet::parse(int len, unsigned char * data) {
             return new ReadReqPacket(len, data);
         case PacketType::Response:
             return new ReadResponsePacket(len, data);
+        case PacketType::Write:
+            return new WriteReqPacket(len, data);
         default:
             header->type = PacketType::Invalid;
             return new Packet(len, data);

@@ -6,10 +6,10 @@
  */
 
 #include "Service.h"
-#include <iostream>
+
 struct __attribute__((__packed__)) service_payload {
     char characteristicId;
-    int16_t dataLength;
+    int dataLength;
     char dataPointer;
 };
 
@@ -38,6 +38,14 @@ const char* const Service::getValueOfCharacteristic(char id) {
     int offset = getOffsetForCharacteristic(id);
     service_payload *payload = (service_payload *) (buffer + offset);
     return &(payload->dataPointer);
+}
+
+void Service::setCharacteristics(unsigned char chCount, unsigned char * data) {
+    service_payload *payload;
+    int offset = 0;
+    while(chCount-- > 0) {
+        payload = (service_payload *) (data + offset);
+    }
 }
 
 void Service::setValueOfCharacteristic(char id, int len, char * value) {

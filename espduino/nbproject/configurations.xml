@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>FP.h</itemPath>
+      <itemPath>crc16.h</itemPath>
+      <itemPath>espduino.h</itemPath>
+      <itemPath>mqtt.h</itemPath>
+      <itemPath>rest.h</itemPath>
+      <itemPath>ringbuf.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>FP.cpp</itemPath>
+      <itemPath>crc16.c</itemPath>
+      <itemPath>espduino.cpp</itemPath>
+      <itemPath>mqtt.cpp</itemPath>
+      <itemPath>rest.cpp</itemPath>
+      <itemPath>ringbuf.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <itemPath>Makefile</itemPath>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="3">
+      <toolsSet>
+        <compilerSet>AVR|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>../arduino_lib</pElem>
+          </incDir>
+          <commandLine>-Os -Wall -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100</commandLine>
+        </cTool>
+        <ccTool>
+          <incDir>
+            <pElem>../arduino_lib</pElem>
+          </incDir>
+          <commandLine>-Os -Wall -fno-exceptions -ffunction-sections -fdata-sections -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=100</commandLine>
+        </ccTool>
+        <archiverTool>
+          <commandlineTool>avr-ar</commandlineTool>
+          <ranlibTool>avr-ranlib</ranlibTool>
+        </archiverTool>
+      </compileType>
+      <item path="FP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FP.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="crc16.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="crc16.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="espduino.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="espduino.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="mqtt.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="mqtt.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ringbuf.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ringbuf.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="3">
+      <toolsSet>
+        <compilerSet>AVR|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <archiverTool>
+        </archiverTool>
+      </compileType>
+      <item path="FP.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FP.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Makefile" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="crc16.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="crc16.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="espduino.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="espduino.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="mqtt.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="mqtt.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="rest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="rest.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ringbuf.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="ringbuf.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

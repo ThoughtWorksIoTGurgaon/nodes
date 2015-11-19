@@ -21,6 +21,7 @@ public:
     virtual int getOffsetForCharacteristic(char id) = 0;
     
     const char * const getValueOfCharacteristic(char id);
+    void setCharacteristics(unsigned char chCount, unsigned char * data);
     void setValueOfCharacteristic(char id, int len, char * data);
 private:
     char * buffer;

@@ -13,12 +13,13 @@ CP=cp
 GREP=grep
 NM=nm
 CCADMIN=CCadmin
-RANLIB=ranlib
+RANLIB=avr-ranlib
 CC=avr-gcc
 CCC=avr-g++
 CXX=avr-g++
 FC=gfortran
 AS=avr-as
+AR=avr-ar
 
 # Macros
 CND_PLATFORM=AVR-MacOSX
@@ -35,8 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/SoftwareSerial.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/FP.o \
+	${OBJECTDIR}/crc16.o \
+	${OBJECTDIR}/espduino.o \
+	${OBJECTDIR}/mqtt.o \
+	${OBJECTDIR}/rest.o \
+	${OBJECTDIR}/ringbuf.o
 
 
 # C Compiler Flags
@@ -53,25 +58,47 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L../arduino_lib/dist/Debug/Avr-MacOSX -L../protocol_lib/dist/Debug/AVR-MacOSX -L../espduino/dist/Debug/AVR-MacOSX -larduino_lib -lm -lespduino -lprotocol_lib
+LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libespduino.a
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libespduino.a: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	avr-g++ -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device ${OBJECTFILES} ${LDLIBSOPTIONS} -Os -Wl,--gc-sections -mmcu=atmega328p
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libespduino.a
+	${AR} -rv ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libespduino.a ${OBJECTFILES} 
+	$(RANLIB) ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libespduino.a
 
-${OBJECTDIR}/SoftwareSerial.o: SoftwareSerial.cpp 
+${OBJECTDIR}/FP.o: FP.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I../arduino_lib -I../protocol_lib -I../espduino -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SoftwareSerial.o SoftwareSerial.cpp
+	$(COMPILE.cc) -g -I../arduino_lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FP.o FP.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
+${OBJECTDIR}/crc16.o: crc16.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I../arduino_lib -I../protocol_lib -I../espduino -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.c) -g -I../arduino_lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/crc16.o crc16.c
+
+${OBJECTDIR}/espduino.o: espduino.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../arduino_lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/espduino.o espduino.cpp
+
+${OBJECTDIR}/mqtt.o: mqtt.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../arduino_lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/mqtt.o mqtt.cpp
+
+${OBJECTDIR}/rest.o: rest.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I../arduino_lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/rest.o rest.cpp
+
+${OBJECTDIR}/ringbuf.o: ringbuf.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -I../arduino_lib -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ringbuf.o ringbuf.c
 
 # Subprojects
 .build-subprojects:
@@ -79,7 +106,7 @@ ${OBJECTDIR}/main.o: main.cpp
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/device
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libespduino.a
 
 # Subprojects
 .clean-subprojects:

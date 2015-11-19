@@ -39,7 +39,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/Protocol.o \
 	${OBJECTDIR}/ReadReqPacket.o \
 	${OBJECTDIR}/ReadResponsePacket.o \
-	${OBJECTDIR}/Service.o
+	${OBJECTDIR}/Service.o \
+	${OBJECTDIR}/WriteReqPacket.o
 
 # Test Directory
 TESTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}/tests
@@ -98,6 +99,11 @@ ${OBJECTDIR}/Service.o: Service.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service.o Service.cpp
+
+${OBJECTDIR}/WriteReqPacket.o: WriteReqPacket.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/WriteReqPacket.o WriteReqPacket.cpp
 
 # Subprojects
 .build-subprojects:
@@ -196,6 +202,19 @@ ${OBJECTDIR}/Service_nomain.o: ${OBJECTDIR}/Service.o Service.cpp
 	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service_nomain.o Service.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Service.o ${OBJECTDIR}/Service_nomain.o;\
+	fi
+
+${OBJECTDIR}/WriteReqPacket_nomain.o: ${OBJECTDIR}/WriteReqPacket.o WriteReqPacket.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/WriteReqPacket.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/WriteReqPacket_nomain.o WriteReqPacket.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/WriteReqPacket.o ${OBJECTDIR}/WriteReqPacket_nomain.o;\
 	fi
 
 # Run Test Targets

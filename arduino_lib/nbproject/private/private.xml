@@ -4,7 +4,21 @@
         <activeConfTypeElem>3</activeConfTypeElem>
         <activeConfIndexElem>0</activeConfIndexElem>
     </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/abi.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/Arduino.h</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/main.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/new.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/HardwareSerial.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/HardwareSerial0.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/HardwareSerial1.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/HardwareSerial.h</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/Print.h</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/wiring.c</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/IPAddress.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/arduino_lib/CDC.cpp</file>
+        </group>
     </open-files>
 </project-private>
