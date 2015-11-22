@@ -9,6 +9,7 @@
 
 #include "ReadReqPacket.h"
 #include "ReadResponsePacket.h"
+#include "WriteReqPacket.h"
 
 class Protocol {
 public:

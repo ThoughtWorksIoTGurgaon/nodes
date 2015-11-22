@@ -3,3 +3,6 @@ build
 /arduino_lib/dist/
 /device/dist/
 /espduino/dist/
+/protocol_lib/dist
+/nbproject
+/protocol_lib/dist/Release/

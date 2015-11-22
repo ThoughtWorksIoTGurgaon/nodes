@@ -15,6 +15,7 @@ public:
                 Observe = 3, 
                 Response = 4, 
                 Ack = 5, 
+                Discovery=127,
                 Invalid = 255;
 };
 

@@ -5,6 +5,7 @@
  * Created on 16 October, 2015, 5:18 PM
  */
 
+#include "Packet.h"
 #include "WriteReqPacket.h"
 
 struct __attribute__ ((__packed__)) WriteCommandStruct {

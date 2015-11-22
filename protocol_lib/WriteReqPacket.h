@@ -8,6 +8,8 @@
 #ifndef WRITEREQPACKET_H
 #define	WRITEREQPACKET_H
 
+class Packet;
+
 class WriteReqPacket: public Packet {
 public:
     WriteReqPacket();
