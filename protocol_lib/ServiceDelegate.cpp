@@ -10,4 +10,7 @@
 ServiceDelegate::ServiceDelegate() {
 }
 
+void ServiceDelegate::didWriteToCharacteristic(char id, int len, char * value)  {}
+void ServiceDelegate::didReadFromCharacteristic(char id, int len, char * value) {}
+void ServiceDelegate::didCompleteWritingToCharacteristics() {}
 

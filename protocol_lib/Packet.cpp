@@ -9,7 +9,7 @@
 #include "ReadReqPacket.h"
 #include "ReadResponsePacket.h"
 #include "WriteReqPacket.h"
-#include "BroadcastDiscoveryPacket.h"
+//#include "BroadcastDiscoveryPacket.h"
 
 Packet::Packet() {}
 
@@ -40,8 +40,8 @@ Packet* Packet::parse(int len, unsigned char * data) {
             return new ReadResponsePacket(len, data);
         case PacketType::Write:
             return new WriteReqPacket(len, data);
-        case PacketType::Discovery:
-            return new BroadcastDiscoveryPacket(len,data);
+//        case PacketType::Discovery:
+//            return new BroadcastDiscoveryPacket(len,data);
         default:
             header->type = PacketType::Invalid;
             return new Packet(len, data);

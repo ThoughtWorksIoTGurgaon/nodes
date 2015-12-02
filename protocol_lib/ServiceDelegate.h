@@ -12,8 +12,9 @@ class ServiceDelegate {
 public:
     ServiceDelegate();
     
-    virtual void didWriteToCharacteristic(char id, int len, char * value) = 0;
-    virtual void didReadFromCharacteristic(char id, int len, char * value) = 0;
+    virtual void didWriteToCharacteristic(char id, int len, char * value);
+    virtual void didCompleteWritingToCharacteristics();
+    virtual void didReadFromCharacteristic(char id, int len, char * value);
 private:
 
 };
