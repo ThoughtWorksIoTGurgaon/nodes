@@ -8,7 +8,11 @@
 #ifndef WRITEREQPACKET_H
 #define	WRITEREQPACKET_H
 
+<<<<<<< HEAD
 class Packet;
+=======
+#include "Packet.h"
+>>>>>>> added service delegate
 
 class WriteReqPacket: public Packet {
 public:

@@ -9,6 +9,7 @@
       <itemPath>ReadReqPacket.h</itemPath>
       <itemPath>ReadResponsePacket.h</itemPath>
       <itemPath>Service.h</itemPath>
+      <itemPath>ServiceDelegate.h</itemPath>
       <itemPath>WriteReqPacket.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -23,6 +24,7 @@
       <itemPath>ReadReqPacket.cpp</itemPath>
       <itemPath>ReadResponsePacket.cpp</itemPath>
       <itemPath>Service.cpp</itemPath>
+      <itemPath>ServiceDelegate.cpp</itemPath>
       <itemPath>WriteReqPacket.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -88,6 +90,10 @@
       <item path="Service.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Service.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ServiceDelegate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ServiceDelegate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="WriteReqPacket.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -171,6 +177,10 @@
       <item path="Service.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Service.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ServiceDelegate.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ServiceDelegate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="WriteReqPacket.cpp" ex="false" tool="1" flavor2="0">
       </item>

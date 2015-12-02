@@ -8,9 +8,11 @@
 #ifndef SERVICE_H
 #define	SERVICE_H
 
+#include "ServiceDelegate.h"
+
 class Service {
 public:
-    Service(unsigned char characteristicCount, char * data);
+    Service(unsigned char characteristicCount, char * data, ServiceDelegate *delegate);
     void initialize();
     
     const char * const serialize();
@@ -26,7 +28,7 @@ public:
 private:
     char * buffer;
     unsigned char characteristicCount;
+    ServiceDelegate *delegate;
 };
 
 #endif	/* SERVICE_H */
-

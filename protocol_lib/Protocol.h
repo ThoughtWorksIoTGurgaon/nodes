@@ -8,6 +8,7 @@
 #define	PROTOCOL_H
 
 #include "ReadReqPacket.h"
+#include "WriteReqPacket.h"
 #include "ReadResponsePacket.h"
 #include "WriteReqPacket.h"
 

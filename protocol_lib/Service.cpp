@@ -6,6 +6,7 @@
  */
 
 #include "Service.h"
+#include "ServiceDelegate.h"
 
 struct __attribute__((__packed__)) service_payload {
     char characteristicId;
@@ -13,7 +14,11 @@ struct __attribute__((__packed__)) service_payload {
     char dataPointer;
 };
 
-Service::Service(unsigned char characteristicCount, char * data): buffer(data), characteristicCount(characteristicCount) {}
+Service::Service(
+    unsigned char characteristicCount, 
+    char * data, 
+    ServiceDelegate *delegate
+): buffer(data), characteristicCount(characteristicCount), delegate(delegate) {}
 
 void Service::initialize() {
     int offset;
@@ -37,6 +42,7 @@ unsigned char Service::getCountOfCharacteristics() {
 const char* const Service::getValueOfCharacteristic(char id) {
     int offset = getOffsetForCharacteristic(id);
     service_payload *payload = (service_payload *) (buffer + offset);
+    delegate->didReadFromCharacteristic(id, payload->dataLength, &(payload->dataPointer));
     return &(payload->dataPointer);
 }
 
@@ -45,6 +51,12 @@ void Service::setCharacteristics(unsigned char chCount, unsigned char * data) {
     int offset = 0;
     while(chCount-- > 0) {
         payload = (service_payload *) (data + offset);
+        setValueOfCharacteristic(
+                payload->characteristicId, 
+                payload->dataLength, 
+                &(payload->dataPointer)
+        );
+        offset += payload->dataLength + sizeof(char) + sizeof(int);
     }
 }
 
@@ -57,4 +69,5 @@ void Service::setValueOfCharacteristic(char id, int len, char * value) {
         len = len -1;
         d[len] = value[len];
     }
+    delegate->didWriteToCharacteristic(id, len, value);
 }

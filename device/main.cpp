@@ -2,6 +2,8 @@
 #include <HardwareSerial.h>
 #include "SoftwareSerial.h"
 #include <Protocol.h>
+#include <Service.h>
+#include <ServiceDelegate.h>
 #include <espduino.h>
 #include <mqtt.h>
 
@@ -37,9 +39,22 @@ void initVariant() { }
 
 char buffer[5];
 
+class SwitchServiceDelegate: public ServiceDelegate {
+    int pin;
+    
+public:
+    SwitchServiceDelegate(int pin): pin(pin) {}
+    
+    void didWriteToCharacteristic(char id, int len, char * value) {
+        if (*value == 0) digitalWrite(pin, LOW);
+        else digitalWrite(pin, HIGH);
+    }
+    void didReadFromCharacteristic(char id, int len, char * value) {}
+};
+
 class SwitchService : public Service {
 public:
-    ServiceImp(char * data): Service(1, data) {}
+    SwitchService(char * data): Service(1, data, new SwitchServiceDelegate(13)) {}
     
     int getDataSizeForCharacteristic(char id) {
         return 1;
@@ -78,7 +93,6 @@ void mqttConnected(void* response)
 {
   debugPort.println("Connected to Mqtt");
   mqtt.subscribe(commandTopic); //or mqtt.subscribe("topic"); /*with qos = 0*/
-  mqtt.publish(dataTopic, "data0");
 }
 
 void mqttDisconnected(void* response)
@@ -97,13 +111,13 @@ void mqttData(void* response)
   String inputString = res.popString();
   debugPort.println(inputString);
 
-  const char * data = inputString.c_str();
+  unsigned char * data = (unsigned char *)inputString.c_str();
   
   Packet * packet = protocol.parsePacket(inputString.length(), data);
   if (packet->getType() == PacketType::Read) {
       ReadReqPacket * readRequestPacket = (ReadReqPacket *) packet;
       ReadResponsePacket * responsePacket = protocol.buildResponsePacketForReadRequest(readRequestPacket, &switchService);
-      mqtt.publish(dataTopic, responsePacket->getData());
+      mqtt.publish(dataTopic, (char *)responsePacket->getData());
   }
 }
 

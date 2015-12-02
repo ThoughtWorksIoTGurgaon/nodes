@@ -9,25 +9,11 @@
         <group>
             <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Service.h</file>
             <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Protocol.h</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Service.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/ReadResponsePacket.h</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/ReadResponsePacket.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/ReadReqPacket.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/TestRunner.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/ReadResponsePacketTest.h</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Packet.h</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/ReadResponsePacketTest.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Packet.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/ProtocolTest.h</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/ProtocolTest.cpp</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/ServiceDelegate.cpp</file>
             <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Protocol.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/ServiceTest.h</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/nbproject/configurations.xml</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/nbproject/Makefile-Debug.mk</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/nbproject/Makefile-Release.mk</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/Service.cpp</file>
             <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/tests/ServiceTest.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/WriteReqPacket.cpp</file>
-            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/ReadReqPacket.h</file>
+            <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/ServiceDelegate.h</file>
             <file>file:/Users/Anuj/Work/iot-ggn/nodes/protocol_lib/WriteReqPacket.h</file>
         </group>
     </open-files>

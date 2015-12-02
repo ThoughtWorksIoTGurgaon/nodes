@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ReadReqPacket.o \
 	${OBJECTDIR}/ReadResponsePacket.o \
 	${OBJECTDIR}/Service.o \
+	${OBJECTDIR}/ServiceDelegate.o \
 	${OBJECTDIR}/WriteReqPacket.o
 
 # Test Directory
@@ -99,6 +100,11 @@ ${OBJECTDIR}/Service.o: Service.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service.o Service.cpp
+
+${OBJECTDIR}/ServiceDelegate.o: ServiceDelegate.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ServiceDelegate.o ServiceDelegate.cpp
 
 ${OBJECTDIR}/WriteReqPacket.o: WriteReqPacket.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -202,6 +208,19 @@ ${OBJECTDIR}/Service_nomain.o: ${OBJECTDIR}/Service.o Service.cpp
 	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Service_nomain.o Service.cpp;\
 	else  \
 	    ${CP} ${OBJECTDIR}/Service.o ${OBJECTDIR}/Service_nomain.o;\
+	fi
+
+${OBJECTDIR}/ServiceDelegate_nomain.o: ${OBJECTDIR}/ServiceDelegate.o ServiceDelegate.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	@NMOUTPUT=`${NM} ${OBJECTDIR}/ServiceDelegate.o`; \
+	if (echo "$$NMOUTPUT" | ${GREP} '|main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T main$$') || \
+	   (echo "$$NMOUTPUT" | ${GREP} 'T _main$$'); \
+	then  \
+	    ${RM} "$@.d";\
+	    $(COMPILE.cc) -O2 -Dmain=__nomain -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ServiceDelegate_nomain.o ServiceDelegate.cpp;\
+	else  \
+	    ${CP} ${OBJECTDIR}/ServiceDelegate.o ${OBJECTDIR}/ServiceDelegate_nomain.o;\
 	fi
 
 ${OBJECTDIR}/WriteReqPacket_nomain.o: ${OBJECTDIR}/WriteReqPacket.o WriteReqPacket.cpp 
